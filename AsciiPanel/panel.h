@@ -19,18 +19,16 @@ public:
 
 	~Panel()
 	{
+		delete console;
 		delete [] values;
 	}
 
-	void clear();
-
-	void clearGlyph();
-
-	void clearColor();
+	void flush(char glyph, Tile::ColorValue color);
+	void flushGlyph(char glyph);
+	void flushColor(Tile::ColorValue color);
 
 	void paint(unsigned int srcX, unsigned int srcY, unsigned int endX, 
 		unsigned int endY, unsigned int posX, unsigned int posY);
-
 	void paintText(string text, Tile::ColorValue color, unsigned int posX, unsigned int posY);
 
 	void toggleCursorVisible();

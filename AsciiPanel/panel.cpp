@@ -1,26 +1,26 @@
 #include "panel.h"
 
-void Panel::clear()
+void Panel::flush(char glyph, Tile::ColorValue color)
 {
-	clearGlyph();
-	clearColor();
+	flushGlyph(glyph);
+	flushColor(color);
 }
 
-void Panel::clearGlyph()
+void Panel::flushGlyph(char glyph)
 {
 	for (int i = 0; i < width; i++)
 	{
 		for (int j = 0; j < height; j++)
-			values[i][j].setGlyph('.');
+			values[i][j].setGlyph(glyph);
 	}
 }
 
-void Panel::clearColor()
+void Panel::flushColor(Tile::ColorValue color)
 {
 	for (int i = 0; i < width; i++)
 	{
 		for (int j = 0; j < height; j++)
-			values[i][j].setColor(Tile::WHITE);
+			values[i][j].setColor(color);
 	}
 }
 
