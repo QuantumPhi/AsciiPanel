@@ -25,6 +25,8 @@ public:
 	void paint(unsigned int srcX, unsigned int srcY, unsigned int endX, 
 		unsigned int endY, unsigned int posX, unsigned int posY);
 
+	void paintText(string text, Tile::ColorValue color, unsigned int posX, unsigned int posY);
+
 	void toggleCursorVisible();
 	bool isCursorVisible();
 

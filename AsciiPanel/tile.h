@@ -28,11 +28,7 @@ public:
 		color = color_;
 	}
 
-	Tile()
-	{
-		glyph = '.';
-		color = WHITE;
-	}
+	Tile() : Tile('.', WHITE) { }
 
 	char getGlyph() { return glyph; }
 	int getColor() { return color; }

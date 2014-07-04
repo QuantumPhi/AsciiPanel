@@ -20,6 +20,16 @@ void Panel::paint(unsigned int srcX, unsigned int srcY, unsigned int endX,
 	}
 }
 
+void Panel::paintText(string text, Tile::ColorValue color, unsigned int posX, unsigned int posY)
+{
+	COORD pos;
+	pos.X = posX;
+	pos.Y = posY;
+	SetConsoleCursorPosition(console, pos);
+	SetConsoleTextAttribute(console, color);
+	cout << text.c_str();
+}
+
 void Panel::toggleCursorVisible()
 {
 	CONSOLE_CURSOR_INFO info;
