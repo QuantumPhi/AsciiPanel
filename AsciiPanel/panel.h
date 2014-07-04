@@ -22,6 +22,12 @@ public:
 		delete [] values;
 	}
 
+	void clear();
+
+	void clearGlyph();
+
+	void clearColor();
+
 	void paint(unsigned int srcX, unsigned int srcY, unsigned int endX, 
 		unsigned int endY, unsigned int posX, unsigned int posY);
 

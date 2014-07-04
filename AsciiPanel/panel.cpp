@@ -1,5 +1,29 @@
 #include "panel.h"
 
+void Panel::clear()
+{
+	clearGlyph();
+	clearColor();
+}
+
+void Panel::clearGlyph()
+{
+	for (int i = 0; i < width; i++)
+	{
+		for (int j = 0; j < height; j++)
+			values[i][j].setGlyph('.');
+	}
+}
+
+void Panel::clearColor()
+{
+	for (int i = 0; i < width; i++)
+	{
+		for (int j = 0; j < height; j++)
+			values[i][j].setColor(Tile::WHITE);
+	}
+}
+
 void Panel::paint(unsigned int srcX, unsigned int srcY, unsigned int endX, 
 	unsigned int endY, unsigned int posX, unsigned int posY)
 {

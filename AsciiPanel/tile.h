@@ -31,7 +31,9 @@ public:
 	Tile() : Tile('.', WHITE) { }
 
 	char getGlyph() { return glyph; }
+	void setGlyph(char glyph_) { glyph = glyph_; }
 	int getColor() { return color; }
+	void setColor(ColorValue color_) { color = color_; }
 
 protected:
 	char glyph;
