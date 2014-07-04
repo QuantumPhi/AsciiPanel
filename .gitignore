@@ -203,3 +203,6 @@ FakesAssemblies/
 *.exe
 *.out
 *.app
+
+# User Files
+AsciiPanel/Debug/
