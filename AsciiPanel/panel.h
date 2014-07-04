@@ -2,8 +2,6 @@
 #include <Windows.h>
 #include "tile.h"
 
-#define console GetStdHandle(STD_OUTPUT_HANDLE)
-
 using namespace std;
 
 class Panel
@@ -24,8 +22,11 @@ public:
 		delete [] values;
 	}
 
-	void paint(unsigned int dispWidth, unsigned int dispHeight, unsigned int srcX, 
-		unsigned int srcY, unsigned int posX, unsigned int posY);
+	void paint(unsigned int srcX, unsigned int srcY, unsigned int endX, 
+		unsigned int endY, unsigned int posX, unsigned int posY);
+
+	void toggleCursorVisible();
+	bool isCursorVisible();
 
 	int getWidth() { return width; }
 	int getHeight() { return height; }
@@ -33,6 +34,7 @@ public:
 	Tile* getTile(unsigned int x, unsigned int y);
 	void setTile(unsigned int x, unsigned int y, Tile* tile);
 protected:
+	const HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
 	unsigned int width, height;
 	Tile** values;
 };

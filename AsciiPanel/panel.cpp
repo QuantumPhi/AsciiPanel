@@ -1,13 +1,13 @@
 #include "panel.h"
 
-void Panel::paint(unsigned int dispWidth, unsigned int dispHeight, unsigned int srcX, 
-	unsigned int srcY, unsigned int posX, unsigned int posY)
+void Panel::paint(unsigned int srcX, unsigned int srcY, unsigned int endX, 
+	unsigned int endY, unsigned int posX, unsigned int posY)
 {
-	if(dispHeight - 1 > width || dispWidth - 1 > height || dispWidth - 1 < 0 || dispHeight - 1 < 0)
+	if (srcX >= width || srcX > endX || srcY >= height || srcY > endY)
 		return;
-	for(int i = 0; i < dispWidth; i++)
+	for(int i = srcX; i < width && i <= endX; i++)
 	{
-		for(int j = 0; j < dispHeight; j++)
+		for(int j = srcY; j < height && j <= endY; j++)
 		{
 			COORD pos;
 			pos.X = posX + i;
@@ -18,6 +18,21 @@ void Panel::paint(unsigned int dispWidth, unsigned int dispHeight, unsigned int 
 		}
 		cout << "\n";
 	}
+}
+
+void Panel::toggleCursorVisible()
+{
+	CONSOLE_CURSOR_INFO info;
+	GetConsoleCursorInfo(console, &info);
+	info.bVisible = !info.bVisible;
+	SetConsoleCursorInfo(console, &info);
+}
+
+bool Panel::isCursorVisible()
+{
+	CONSOLE_CURSOR_INFO info;
+	GetConsoleCursorInfo(console, &info);
+	return info.bVisible;
 }
 
 Tile* Panel::getTile(unsigned int x, unsigned int y)
