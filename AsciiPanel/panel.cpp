@@ -1,8 +1,9 @@
 #include "panel.h"
 
-void Panel::paint(int dispWidth, int dispHeight, int srcX, int srcY, int posX, int posY)
+void Panel::paint(unsigned int dispWidth, unsigned int dispHeight, unsigned int srcX, 
+	unsigned int srcY, unsigned int posX, unsigned int posY)
 {
-	if(dispHeight - 1 >= width || dispWidth - 1 >= height || dispWidth - 1 < 0 || dispHeight - 1 < 0)
+	if(dispHeight - 1 > width || dispWidth - 1 > height || dispWidth - 1 < 0 || dispHeight - 1 < 0)
 		return;
 	for(int i = 0; i < dispWidth; i++)
 	{

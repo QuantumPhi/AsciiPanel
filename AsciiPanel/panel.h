@@ -24,7 +24,11 @@ public:
 		delete [] values;
 	}
 
-	void paint(int dispWidth, int dispHeight, int srcX, int srcY, int posX, int posY);
+	void paint(unsigned int dispWidth, unsigned int dispHeight, unsigned int srcX, 
+		unsigned int srcY, unsigned int posX, unsigned int posY);
+
+	int getWidth() { return width; }
+	int getHeight() { return height; }
 
 	Tile* getTile(unsigned int x, unsigned int y);
 	void setTile(unsigned int x, unsigned int y, Tile* tile);
